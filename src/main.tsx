@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Sidebar from './components/layouts/sidebar'
 import { UploadScreen } from './screens/upload-screen'
-import { ClientsScreen } from './screens/clients-screen'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "./lib/envs"
+import { ChargedTable } from './screens/clients-screen/table'
+import { ClientsScreen } from './screens/clients-screen'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,13 @@ const router = createBrowserRouter([
       {
         path: "/clients",
         element: <ClientsScreen />,
+        children: [
+          { index: true, element: <Navigate to="1" replace /> },
+          {
+            path: ":page",
+            element: <ChargedTable />,
+          }
+        ]
       },
     ],
   },
