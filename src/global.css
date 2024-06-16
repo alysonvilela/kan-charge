@@ -3,6 +3,8 @@
 @tailwind utilities;
 @tailwind screens;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @layer utilities   {
   * {
     -webkit-font-smoothing: antialiased;
