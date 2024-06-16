@@ -1,17 +1,17 @@
+import "./lib/envs"
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Sidebar from './components/layouts/sidebar'
+import { Dashboard } from './components/layouts/sidebar'
 import { UploadScreen } from './screens/upload-screen'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import "./lib/envs"
 import { ChargedTable } from './screens/clients-screen/table'
 import { ClientsScreen } from './screens/clients-screen'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Sidebar />,
+    element: <Dashboard />,
     children: [
       { index: true, element: <Navigate to="/charge" replace /> },
       {

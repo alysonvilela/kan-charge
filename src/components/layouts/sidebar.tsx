@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, NavLink, Outlet } from "react-router-dom"
 
 
-export default () => {
+export const Dashboard =() => {
   const [state, setState] = useState(false)
 
   const submenuNav = [

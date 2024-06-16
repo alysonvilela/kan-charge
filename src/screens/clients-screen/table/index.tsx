@@ -1,33 +1,6 @@
 import { Pagination } from "./_pagination"
 import { useTableViewModel } from "./_container"
 
-enum EChargeStatus {
-    "EMAIL-SENT",
-    "PROCESSED",
-    "BILLET-CREATED",
-}
-
-type IChargeStatus = keyof typeof EChargeStatus
-
-type ChargeStatusTranslation<T> = {
-    [k in IChargeStatus]: T
-}
-
-const chargeLabel: ChargeStatusTranslation<{
-    color: string
-}> = {
-    "EMAIL-SENT": {
-        color: "text-green-600 bg-green-50",
-    },
-    "PROCESSED": {
-        color: "text-blue-600 bg-blue-50",
-    },
-    "BILLET-CREATED": {
-        color: "text-pink-600 bg-pink-50",
-    },
-}
-
-
 export const ChargedTable = () => {
     const {
         response,
@@ -38,9 +11,9 @@ export const ChargedTable = () => {
         return <div>...Loading</div>
     }
 
-    if (!response.data) {
+    if (!response.data?.data.length) {
         return (
-            <div className="w-full h-[300px] rounded-lg border-2 border-dashed flex items-center justify-center mb-16">
+            <div className="w-full h-[300px] rounded-lg border-2 flex items-center justify-center mb-16 bg-white">
                 <p className="text-slate-600 mt-2">Não há registros</p>
             </div>
         )
@@ -52,6 +25,7 @@ export const ChargedTable = () => {
                 <thead className="text-gray-600 font-medium border-b">
                     <tr>
                         <th className="py-3 pr-6">Nome</th>
+                        <th className="py-3 pr-6">Email</th>
                         <th className="py-3 pr-6">Valor da cobrança</th>
                         <th className="py-3 pr-6">Status</th>
                         <th className="py-3 pr-6"></th>
@@ -59,10 +33,14 @@ export const ChargedTable = () => {
                 </thead>
                 <tbody className="text-gray-600 divide-y">
                     {
-                        response.data.data.map(({ id, name, debtAmount, }) => (
+                        response.data.data.map(({ id, name, debtAmount, email }) => (
                             <tr key={id}>
                                 <td className="pr-6 py-4 whitespace-nowrap">{name}</td>
-                                <td className="pr-6 py-4 whitespace-nowrap">{debtAmount}</td>
+                                <td className="pr-6 py-4 whitespace-nowrap">{email}</td>
+                                <td className="pr-6 py-4 whitespace-nowrap">{new Intl.NumberFormat('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL'
+                                }).format(debtAmount / 100)}</td>
 
                                 <td className="pr-6 py-4 whitespace-nowrap">
                                     <span className={`px-3 py-2 rounded-full font-semibold text-xs ${"Active" == "Active" ? "text-green-600 bg-green-50" : "text-blue-600 bg-blue-50"}`}>
