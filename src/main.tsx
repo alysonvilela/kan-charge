@@ -1,4 +1,5 @@
 import "./lib/envs"
+import "./global.css"
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
