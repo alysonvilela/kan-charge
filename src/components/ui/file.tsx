@@ -36,7 +36,7 @@ export const FileContextInitialValues: Partial<FileContextState> = {
 const FileContext = createContext({} as FileContextType);
 
 const FileReducer = (
-  state: FileContextState,
+  _state: FileContextState,
   action: FileAction,
 ): FileContextState => {
   switch (action.type) {
@@ -46,7 +46,7 @@ const FileReducer = (
   }
 };
 
-const FileProvider = ({ children }: FileProviderProps) => {
+export const FileProvider = ({ children }: FileProviderProps) => {
   const [state, dispatch] = useReducer(
     FileReducer,
     FileContextInitialValues as FileContextState,
@@ -59,7 +59,7 @@ const FileProvider = ({ children }: FileProviderProps) => {
   );
 };
 
-const useFileContext = () => {
+export const useFileContext = () => {
   const context = useContext(FileContext);
 
   if (context === undefined)

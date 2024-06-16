@@ -2,10 +2,15 @@ import { ReactElement } from "react";
 
 function NoMatch(): ReactElement {
     return (
-        <div className="h-screen w-screen bg-zinc-800 text-white gap-6 flex flex-1 flex-col items-center justify-center">
-            <h2 className="text-2xl font-medium">Nothing to see here</h2>
-            <p className="font-extrabold text-green-300">
-              Hands on the work!
+        <div className="space-y-3 text-center">
+            <h3 className="text-indigo-600 font-semibold">
+                404 Error
+            </h3>
+            <p className="text-gray-800 text-4xl font-semibold sm:text-5xl">
+                Page not found
+            </p>
+            <p>
+                Sorry, the page you are looking for could not be found or has been removed.
             </p>
         </div>
     );
