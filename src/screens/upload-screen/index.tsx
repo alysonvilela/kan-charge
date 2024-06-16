@@ -1,23 +1,4 @@
-import { HardDriveUploadIcon, SaveIcon, TableIcon } from "lucide-react"
 import { ImageUpload } from "./file-upload"
-
-const integrations = [
-    {
-        title: "Extensão",
-        desc: "Arquivo CSV",
-        icon: <TableIcon />
-
-    }, {
-        title: "Quantidade de linhas",
-        desc: "1.000.01 linhas",
-        icon: <HardDriveUploadIcon />
-
-    }, {
-        title: "Tamanho",
-        desc: "1GB",
-        icon: <SaveIcon />
-    },
-]
 
 export const UploadScreen = () => {
 

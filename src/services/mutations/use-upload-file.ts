@@ -1,4 +1,4 @@
-import { MutateOptions, UseMutationOptions, useMutation } from "@tanstack/react-query";
+import { UseMutationOptions, useMutation } from "@tanstack/react-query";
 import { AxiosError, AxiosProgressEvent, AxiosResponse, CancelTokenSource } from "axios";
 import { api } from "../api";
 
