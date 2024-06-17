@@ -1,13 +1,17 @@
-import "./lib/envs"
-import "./global.css"
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Dashboard } from './components/layouts/sidebar'
-import { UploadScreen } from './screens/upload-screen'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ChargedTable } from './screens/clients-screen/table'
-import { ClientsScreen } from './screens/clients-screen'
+import "./lib/envs";
+import "./global.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import { Dashboard } from "./components/layouts/sidebar";
+import { UploadScreen } from "./screens/upload-screen";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ChargedTable } from "./screens/clients-screen/table";
+import { ClientsScreen } from "./screens/clients-screen";
 
 const router = createBrowserRouter([
   {
@@ -28,19 +32,19 @@ const router = createBrowserRouter([
           {
             path: ":page",
             element: <ChargedTable />,
-          }
-        ]
+          },
+        ],
       },
     ],
   },
 ]);
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>,
-)
+);

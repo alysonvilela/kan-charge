@@ -1,9 +1,9 @@
 export interface PaginatedParams {
-    page: number;
-    pageSize: number;
+  page: number;
+  pageSize: number;
 }
 
 export interface PaginatedParamsData<T> {
-    data: T[]
-    total: number
+  data: T[];
+  total: number;
 }

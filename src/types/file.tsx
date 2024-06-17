@@ -1,8 +1,5 @@
 import { CancelTokenSource } from "axios";
-import {
-  FileImage,
-  FolderArchive,
-} from "lucide-react";
+import { FileImage, FolderArchive } from "lucide-react";
 
 export interface FileUploadProgress {
   progress: number;
@@ -24,7 +21,6 @@ const OtherColor = {
   bgColor: "bg-gray-400",
   fillColor: "fill-gray-400",
 };
-
 
 export const getFileIconAndColor = (file: File) => {
   if (file.type.includes(FileTypes.csv)) {
